@@ -65,7 +65,7 @@ https://docs.google.com/spreadsheets/d/1UQ8rfOuJdwhkmS8w8EuxujKZNbWYvNBzhYkXAy2c
 ## 必須要件
 * devise
 * フォロー機能
-* ransack または Vue.js
+* ransack
 
 # English Ver
 
