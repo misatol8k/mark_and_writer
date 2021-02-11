@@ -17,20 +17,15 @@ Ruby 2.6.5
 Rails 5.2.4
 
 ## 機能一覧
-- [ ] 文章作成
-- [ ] 作品投稿
+- [ ] 作品の作成・投稿
 - [ ] 作品編集・削除
 - [ ] 作品の一覧表示
 - [ ] 作品の詳細表示
-- [ ] 作品の絞り込み
 - [ ] 作品の検索
-- [ ] 作品のコメント投稿
-- [ ] 作品のお気に入り登録
 - [ ] ユーザーのログイン認証
 - [ ] ユーザー登録
 - [ ] ユーザー編集・削除
 - [ ] ユーザーの詳細表示
-- [ ] ユーザー管理
 - [ ] フォロー・フォロワー追加
 
 ## カタログ設計
@@ -88,20 +83,15 @@ Ruby 2.6.5
 Rails 5.2.4
 
 ## Functions list
-- [ ] Writing
-- [ ] Submission
+- [ ] Writing and submission
 - [ ] Editing and Deleting Works
 - [ ] View a list of works
 - [ ] View details of a work
-- [ ] Narrow down the works
 - [ ] Search a work
-- [ ] Post comments on a work
-- [ ] Bookmark a work
 - [ ] User Login Authentication
 - [ ] User Registration
 - [ ] Editing and deleting users
 - [ ] Viewing User Details
-- [ ] User Management
 - [ ] Adding Followers and Follower
 
 ## Catalog design,Table_Definition,Screen transition diagram,,Wire frame
