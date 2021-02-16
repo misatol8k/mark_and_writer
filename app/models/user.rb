@@ -4,7 +4,8 @@ class User < ApplicationRecord
   # :trackableのみ絡む追加済み、使用時に追加する
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  mount_uploader :image, ImageUploader
+  has_many :works, dependent: :destroy
   validates :name, presence: true, length: { maximum: 100 }
   validates :profile, length: { maximum: 1000 }
+  mount_uploader :image, ImageUploader
 end
