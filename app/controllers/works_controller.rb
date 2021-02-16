@@ -3,9 +3,8 @@ class WorksController < ApplicationController
   before_action :set_work, only: %i[ show edit update destroy ]
 
   def index
-    @works = Work.all
-    # @q = Work.all.ransack(params[:q])
-    # @works = @q.result(distinct: true)
+    @q = Work.all.ransack(params[:q])
+    @works = @q.result(distinct: true)
   end
 
   def new
