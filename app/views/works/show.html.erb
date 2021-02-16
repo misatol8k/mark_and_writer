@@ -1,2 +1,18 @@
-<h1>Works#show</h1>
-<p>Find me in app/views/works/show.html.erb</p>
+<%# <% provide(:title, t('view.works.show.title')) %> %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @work.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @work.content %>
+</p>
+
+<%= link_to 'Edit', edit_work_path(@work) %> |
+<%= link_to 'Back', works_path %>
+<%= link_to 'Destroy', @work, method: :delete,data: { confirm: '削除しますか？'} %>
+<%# <%= link_to t('view.index'), works_path, class: "btn btn-outline-primary btn-sm" %> %>
+<%# <%= link_to t('view.edit'), edit_work_path(@work), class: "btn btn-outline-success btn-sm" %> %>
+<%# <%= link_to t('view.destroy'), @work, method: :delete, class: "btn btn-outline-danger btn-sm", data: { confirm: t('view.delete_name', name: @work.name)} %> %>
