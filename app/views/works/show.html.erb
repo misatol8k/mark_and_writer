@@ -7,7 +7,7 @@
 
 <p>
   <strong>Content:</strong>
-  <%= @work.content %>
+  <%= safe_join(@work.content.split("\n"),tag(:br)) %>
 </p>
 
 <%= link_to 'Edit', edit_work_path(@work) %> |

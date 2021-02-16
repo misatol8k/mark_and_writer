@@ -5,5 +5,9 @@ class Work < ApplicationRecord
 
   def self.ransackable_associations(auth_object = nil)
     []
-  end  
+  end
+  
+  validates :title, length: { maximum: 100 }
+  validates :content, presence: true, length: { maximum: 10000 }
+  belongs_to :user
 end

@@ -1,7 +1,6 @@
 class WorksController < ApplicationController
-  # before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :set_work, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: %i[new edit update destroy]
 
   def index
     @q = Work.all.ransack(params[:q])
@@ -9,7 +8,7 @@ class WorksController < ApplicationController
   end
 
   def new
-    @work = Work.new
+    @work = current_user.works.build
   end
 
   def edit
@@ -19,7 +18,7 @@ class WorksController < ApplicationController
   end
 
   def create
-    @work = Work.new(work_params)
+    @work = current_user.works.build(work_params)
 
     respond_to do |format|
       if @work.save
@@ -58,6 +57,6 @@ class WorksController < ApplicationController
   end
 
   def work_params
-    params.require(:work).permit(:title, :content)
+    params.require(:work).permit(:title, :content, :user_id)
   end
 end
