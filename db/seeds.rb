@@ -10,6 +10,11 @@ require 'securerandom'
 
 # Faker::Config.locale = :ja
 
+User.create!(name: 'test',
+            email: "test@test.com",
+            password: "password"
+)
+
 5.times do |n|
   user_name = "ユーザー名#{n+1}"
   email = SecureRandom.hex(5)
