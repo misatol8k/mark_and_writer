@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
   # devise_controllerのみ許可するパラメータを設定
   before_action :configure_permitted_parameters, if: :devise_controller?
   protected
