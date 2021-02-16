@@ -11,6 +11,7 @@
 
   <body>
     <% if user_signed_in? %>
+      <%= link_to "作品投稿", new_work_path %>
       <%= link_to "作品一覧", works_path %>
       <%= link_to "プロフィール", user_path(id: current_user.id) %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
@@ -19,8 +20,7 @@
       <%= link_to "ログイン", new_user_session_path %>
     <% end %>
 
-<%# adminログイン時の処理を記載する %>
-    <%# <%= link_to 'ユーザー一覧', users_path %> %>
+<!-- adminログイン時の処理を記載する -->
 
     <% if notice %>
       <p class="alert alert-notice"><%= notice %></p>
