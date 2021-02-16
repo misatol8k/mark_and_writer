@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'securerandom'
+
+# Faker::Config.locale = :ja
+
+5.times do |n|
+  user_name = "ユーザー名#{n+1}"
+  email = SecureRandom.hex(5)
+  User.create!(name: user_name,
+              email: "#{email}@test.com",
+              password: "password"
+  )
+end
