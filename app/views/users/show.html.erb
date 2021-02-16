@@ -1,0 +1,10 @@
+<h1>Users#show</h1>
+
+<p>ユーザー名</p>
+<%= @user.name %>
+<p>プロフィール</p>
+<%= safe_join(@user.profile.split("\n"),tag(:br)) %>
+<p>ユーザー画像</p>
+<%= image_tag @user.image.url %>
+<br>
+<%= link_to "Edit", edit_user_registration_path %>
