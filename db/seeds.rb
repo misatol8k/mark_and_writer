@@ -29,4 +29,12 @@ User.create!(name: 'test',
               content: content,
               user_id: user_id
   )
+  )
+  user_id = User.first.id
+  title = "作品名#{n+1}"
+  content = "#{n+1}件目の作品の内容です。作品の内容です。作品の内容です。作品の内容です。作品の内容です。作品の内容です。"
+  Work.create!(title: title,
+              content: content,
+              user_id: user_id
+  )
 end
