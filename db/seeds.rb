@@ -15,7 +15,7 @@ User.create!(name: 'test',
             password: "password"
 )
 
-5.times do |n|
+20.times do |n|
   user_name = "ユーザー名#{n+1}"
   email = SecureRandom.hex(5)
   User.create!(name: user_name,
