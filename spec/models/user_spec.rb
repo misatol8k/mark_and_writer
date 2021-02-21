@@ -32,7 +32,7 @@ RSpec.describe User, type: :model do
     end
     # profileが1000文字以上は無効な状態であること
     context 'プロフィールが1000文字以上の場合' do
-      it 'is invalid if the name is more than 100 characters' do
+      it 'is invalid if the name is more than 1000 characters' do
         user = User.new(
           name: 'ユーザー1',
           email: 'test1@test.com',
