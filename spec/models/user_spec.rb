@@ -44,6 +44,48 @@ RSpec.describe User, type: :model do
         expect(user.errors[:profile]).to include("is too long (maximum is 1000 characters)")
       end
     end
+    # プロフィールに画像を登録できる
+    context 'プロフィール画像を登録する場合' do
+      it "is valid with a profile image" do
+        user = User.new(
+          name: 'ユーザー1',
+          email: 'test1@test.com',
+          password: 'password',
+          profile: 'ユーザー1のプロフィールです。',
+          image: Rack::Test::UploadedFile.new(Rails.root.join('spec/support/penguin3.png'), 'image/png')
+        )
+        user.valid?
+        expect(user).to be_valid
+      end
+    end
+    # パスワードのバリデーション：文字数
+    context 'パスワードが5文字以下の場合' do
+      it 'is invalid if a password is less than 5 characters' do
+        user = User.new(
+          name: 'Rubyの初心者【ルビイスト】が異世界でプログラマになり無双する　～交通事故からの異世界に転生、かくかくしかじかあった挙げ句にSランクパーティから追放されたけれど、冒険者ギルドのシステムをDXして、冒険者達を影からこっそりサポートしてしまう～',
+          email: 'test1@test.com',
+          password: 'pwd1',
+          profile: 'ユーザー1のプロフィールです。',
+          image: nil
+        )
+        user.valid?
+        expect(user).not_to be_valid
+      end
+    end
+    # メールアドレスのバリデーション：文字形式
+    context 'メールアドレスが登録できない文字を含む場合' do
+      it 'is invalid if a password has characters that cannot be registered' do
+        user = User.new(
+          name: 'Rubyの初心者【ルビイスト】が異世界でプログラマになり無双する　～交通事故からの異世界に転生、かくかくしかじかあった挙げ句にSランクパーティから追放されたけれど、冒険者ギルドのシステムをDXして、冒険者達を影からこっそりサポートしてしまう～',
+          email: 'てst1@test.com',
+          password: false,
+          profile: 'ユーザー1のプロフィールです。',
+          image: nil
+        )
+        user.valid?
+        expect(user).not_to be_valid
+      end
+    end
     # ユーザー名とメールアドレスがあれば有効な状態であること
     context 'ユーザー名とメールアドレスに内容が記載されている場合' do
       it "is valid with a name, email" do
