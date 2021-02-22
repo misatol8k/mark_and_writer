@@ -7,7 +7,7 @@ RSpec.describe Work, type: :model do
   describe 'バリデーションのテスト' do
     # contentがなければ無効な状態であること
     context '本文が空の場合' do
-      it "is invalid without a content" do
+      it 'is invalid without a content' do
         work = Work.new(
           title: 'テスト1',
           content: nil,
@@ -28,12 +28,12 @@ RSpec.describe Work, type: :model do
           user: @user_a
         )
         work.valid?
-        expect(work.errors[:title]).to include("is too long (maximum is 100 characters)")
+        expect(work.errors[:title]).to include('is too long (maximum is 100 characters)')
       end
     end
     # タイトルと本文があれば有効な状態であること
     context '作品のタイトルと本文に内容が記載されている場合' do
-      it "is valid with a title, content" do
+      it 'is valid with a title, content' do
         work = Work.new(
           title: 'テスト名サンプル',
           content: 'テストの内容サンプル',

@@ -11,30 +11,25 @@ require 'securerandom'
 # Faker::Config.locale = :ja
 
 User.create!(name: 'test',
-            email: "test@test.com",
-            password: "password"
-)
+             email: 'test@test.com',
+             password: 'password')
 
 20.times do |n|
-  user_name = "ユーザー名#{n+1}"
+  user_name = "ユーザー名#{n + 1}"
   email = SecureRandom.hex(5)
   User.create!(name: user_name,
-              email: "#{email}@test.com",
-              password: "password"
-  )
+               email: "#{email}@test.com",
+               password: 'password')
   user_id = User.last.id
-  title = "作品名#{n+1}"
-  content = "#{n+1}件目の作品の内容です。作品の内容です。作品の内容です。作品の内容です。作品の内容です。作品の内容です。"
+  title = "作品名#{n + 1}"
+  content = "#{n + 1}件目の作品の内容です。作品の内容です。作品の内容です。作品の内容です。作品の内容です。作品の内容です。"
   Work.create!(title: title,
-              content: content,
-              user_id: user_id
-  )
-  )
+               content: content,
+               user_id: user_id)
   user_id = User.first.id
-  title = "作品名#{n+1}"
-  content = "#{n+1}件目の作品の内容です。作品の内容です。作品の内容です。作品の内容です。作品の内容です。作品の内容です。"
+  title = "作品名#{n + 1}"
+  content = "#{n + 1}件目の作品の内容です。作品の内容です。作品の内容です。作品の内容です。作品の内容です。作品の内容です。"
   Work.create!(title: title,
-              content: content,
-              user_id: user_id
-  )
+               content: content,
+               user_id: user_id)
 end

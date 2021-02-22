@@ -4,7 +4,7 @@ RSpec.describe User, type: :model do
   describe 'バリデーションのテスト' do
     # nameがなければ無効な状態であること
     context 'ユーザー名が空の場合' do
-      it "is invalid without a content" do
+      it 'is invalid without a content' do
         user = User.new(
           name: nil,
           email: 'test1@test.com',
@@ -27,7 +27,7 @@ RSpec.describe User, type: :model do
           image: nil
         )
         user.valid?
-        expect(user.errors[:name]).to include("is too long (maximum is 100 characters)")
+        expect(user.errors[:name]).to include('is too long (maximum is 100 characters)')
       end
     end
     # profileが1000文字以上は無効な状態であること
@@ -41,12 +41,12 @@ RSpec.describe User, type: :model do
           image: nil
         )
         user.valid?
-        expect(user.errors[:profile]).to include("is too long (maximum is 1000 characters)")
+        expect(user.errors[:profile]).to include('is too long (maximum is 1000 characters)')
       end
     end
     # プロフィールに画像を登録できる
     context 'プロフィール画像を登録する場合' do
-      it "is valid with a profile image" do
+      it 'is valid with a profile image' do
         user = User.new(
           name: 'ユーザー1',
           email: 'test1@test.com',
@@ -88,7 +88,7 @@ RSpec.describe User, type: :model do
     end
     # ユーザー名とメールアドレスがあれば有効な状態であること
     context 'ユーザー名とメールアドレスに内容が記載されている場合' do
-      it "is valid with a name, email" do
+      it 'is valid with a name, email' do
         user = User.new(
           name: 'ユーザー1',
           email: 'test1@test.com',
