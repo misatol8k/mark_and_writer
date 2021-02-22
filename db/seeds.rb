@@ -15,7 +15,7 @@ User.create!(name: 'test',
             password: "password"
 )
 
-5.times do |n|
+20.times do |n|
   user_name = "ユーザー名#{n+1}"
   email = SecureRandom.hex(5)
   User.create!(name: user_name,
@@ -23,6 +23,14 @@ User.create!(name: 'test',
               password: "password"
   )
   user_id = User.last.id
+  title = "作品名#{n+1}"
+  content = "#{n+1}件目の作品の内容です。作品の内容です。作品の内容です。作品の内容です。作品の内容です。作品の内容です。"
+  Work.create!(title: title,
+              content: content,
+              user_id: user_id
+  )
+  )
+  user_id = User.first.id
   title = "作品名#{n+1}"
   content = "#{n+1}件目の作品の内容です。作品の内容です。作品の内容です。作品の内容です。作品の内容です。作品の内容です。"
   Work.create!(title: title,
