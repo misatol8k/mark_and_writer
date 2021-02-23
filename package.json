@@ -1,5 +1,7 @@
 {
   "name": "mark_and_writer",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.5.1"
+  }
 }
