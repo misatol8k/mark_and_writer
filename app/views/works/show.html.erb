@@ -1,4 +1,8 @@
 <%# <% provide(:title, t('view.works.show.title')) %> %>
+<p>
+  <strong>User:</strong>
+  <%= link_to "#{@work.user.name}", @work.user %>
+</p>
 
 <p>
   <strong>Title:</strong>

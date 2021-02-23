@@ -32,6 +32,7 @@
       <tr>
         <td><%= strip_tags(work.content).truncate(29,omission: "...") %></td>
         <td><%= strip_tags(work.title).truncate(19,omission: "...") %></td>
+        <td><%= link_to "#{work.user.name}", work.user %></td>
         <td><%= link_to 'Show', work %></td>
       </tr>
     <% end %>
