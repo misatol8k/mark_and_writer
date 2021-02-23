@@ -8,4 +8,4 @@
 <%= image_tag @user.image.url if @user.image && @user.image.url %>
 <%= render 'follow_form', user: @user if @user != current_user %>
 <br>
-<%= link_to "Edit", edit_user_registration_path %>
+<%= link_to "Edit", edit_user_registration_path if @user == current_user %>

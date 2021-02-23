@@ -10,9 +10,9 @@
   <%= safe_join(@work.content.split("\n"),tag(:br)) %>
 </p>
 
-<%= link_to 'Edit', edit_work_path(@work) %> |
+<%= link_to 'Edit', edit_work_path(@work) if @work.user_id == current_user.id %> |
 <%= link_to 'Back', works_path %>
-<%= link_to 'Destroy', @work, method: :delete,data: { confirm: '削除しますか？'} %>
+<%= link_to 'Destroy', @work, method: :delete,data: { confirm: '削除しますか？'} if @work.user_id == current_user.id %>
 <%# <%= link_to t('view.index'), works_path, class: "btn btn-outline-primary btn-sm" %> %>
 <%# <%= link_to t('view.edit'), edit_work_path(@work), class: "btn btn-outline-success btn-sm" %> %>
 <%# <%= link_to t('view.destroy'), @work, method: :delete, class: "btn btn-outline-danger btn-sm", data: { confirm: t('view.delete_name', name: @work.name)} %> %>
