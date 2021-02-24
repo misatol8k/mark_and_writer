@@ -48,16 +48,16 @@ RSpec.describe '作品管理機能', type: :system do
   describe '新規作成機能' do
     before do
       visit new_user_session_path
-      fill_in 'Email', with: 'test2@test.com'
-      fill_in 'Password', with: 'password'
-      click_button 'Log in'
+      fill_in 'メールアドレス', with: 'test2@test.com'
+      fill_in 'パスワード', with: 'password'
+      click_button 'ログイン'
     end
     context '作品を新規作成した場合' do
       before do
         click_on '作品投稿'
         fill_in 'タイトル', with: 'テストを書く'
         fill_in '本文', with: 'RSpecでテストを書く'
-        click_on 'Create Work'
+        click_on '登録する'
       end
       it '作成した作品が表示される' do
         expect(page).to have_content 'RSpecでテストを書く'
@@ -67,10 +67,11 @@ RSpec.describe '作品管理機能', type: :system do
       context '作品を編集した場合' do
         before do
           click_on '作品一覧'
+          sleep 2
           all('tbody tr')[1].click_link 'Show'
           click_on 'Edit'
           fill_in '本文', with: '作品2を編集しました'
-          click_on 'Update Work'
+          click_on '更新する'
         end
         it "編集した内容が表示される" do
           expect(page).to have_content '作品2を編集しました'

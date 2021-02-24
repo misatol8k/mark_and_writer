@@ -15,12 +15,12 @@ RSpec.describe 'ユーザーログイン機能', type: :system do
       fill_in 'メールアドレス', with: 'user_test@test.com'
       fill_in 'ユーザー名', with: 'user_test'
       fill_in 'パスワード', with: 'password'
-      fill_in 'Password confirmation', with: 'password'
-      click_on 'Sign up'
+      fill_in 'パスワード（確認用）', with: 'password'
+      click_on 'アカウント登録'
     end
     context 'ユーザがログインしていない状態のとき' do
       it 'ユーザの新規登録ができること' do
-        expect(page).to have_content 'Welcome! You have signed up successfully.'
+        expect(page).to have_content 'アカウント登録が完了しました。'
       end
     end
     describe 'プロフィール編集・削除機能' do
@@ -29,20 +29,20 @@ RSpec.describe 'ユーザーログイン機能', type: :system do
           click_on 'プロフィール'
           click_on 'Edit'
           fill_in 'ユーザー名', with: 'user_test_edit'
-          fill_in 'Current password', with: 'password'
-          click_on 'Update'
-          expect(page).to have_content 'Your account has been updated successfully.'
+          fill_in '現在のパスワード', with: 'password'
+          click_on '更新'
+          expect(page).to have_content 'アカウント情報を変更しました。'
         end
       end
       context 'ユーザーを削除した場合' do
         it "ユーザーの作品が表示されなくなる" do
           click_on 'プロフィール'
           click_on 'Edit'
-          fill_in 'Current password', with: 'password'
+          fill_in '現在のパスワード', with: 'password'
           page.accept_confirm do
-            click_on 'Cancel my account'
+            click_on 'アカウント削除'
           end
-          expect(page).to have_content 'Bye! Your account has been successfully cancelled. We hope to see you again soon.'
+          expect(page).to have_content 'アカウントを削除しました。またのご利用をお待ちしております。'
         end
       end
     end
@@ -52,11 +52,11 @@ RSpec.describe 'ユーザーログイン機能', type: :system do
       visit new_user_session_path
       fill_in 'メールアドレス', with: 'test2@test.com'
       fill_in 'パスワード', with: 'password'
-      click_button 'Log in'
+      click_button 'ログイン'
     end
     context 'ユーザがログインしていないとき' do
       it 'ログインができること' do
-        expect(page).to have_content 'Signed in successfully.'
+        expect(page).to have_content 'ログインしました。'
       end
     end
     context 'ユーザがログインしたとき' do
