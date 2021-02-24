@@ -13,7 +13,8 @@
   <strong><%= Work.human_attribute_name(:content) %>:</strong>
   <%= safe_join(@work.content.split("\n"),tag(:br)) %>
 </p>
-
-<%= link_to 'Edit', edit_work_path(@work), class: "btn btn-outline-success btn-sm" if @work.user_id == current_user.id%>
-<%= link_to 'Back', works_path, class: "btn btn-outline-primary btn-sm" %>
-<%= link_to 'Destroy', @work, method: :delete,data: { confirm: '削除しますか？'}, class: "btn btn-outline-danger btn-sm" if @work.user_id == current_user.id %>
+<% if user_signed_in? %>
+  <%= link_to 'Edit', edit_work_path(@work), class: "btn btn-outline-success btn-sm" if @work.user_id == current_user.id%>
+  <%= link_to 'Back', works_path, class: "btn btn-outline-primary btn-sm" %>
+  <%= link_to 'Destroy', @work, method: :delete,data: { confirm: '削除しますか？'}, class: "btn btn-outline-danger btn-sm" if @work.user_id == current_user.id %>
+<% end %>
