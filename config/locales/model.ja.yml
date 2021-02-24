@@ -1,0 +1,60 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      work: 作品
+      genre: ジャンル
+      labeling: ラベリング
+      favorite: お気に入り
+      sticker: スタンプ
+      reaction: リアクション
+      relationship: フォロー
+      series: シリーズ
+      impression: 感想
+      highlight: ハイライト
+    attributes:
+      user:
+        name: ユーザー名
+        email: メールアドレス
+        password_digest: パスワード
+        admin: 管理者
+        image: ユーザー画像
+        profile: プロフィール
+      work:
+        title: タイトル
+        content: 本文
+        status: 公開ステータス
+        user_id: ユーザーid
+        series_id: シリーズid
+        created_at: 登録日
+        updated_at: 更新日
+      genre:
+        name: ジャンル名
+      labeling:
+        genre_id: ジャンルid
+        work_id: 作品id
+      favorite:
+        user_id: ユーザーid
+        work_id: 作品id
+      sticker:
+        name: スタンプ名
+        image: スタンプ画像
+      reaction:
+        stamp_id: スタンプid
+        work_id: 作品id
+      relationship:
+        follower_id: フォロワーid
+        follower_id: フォローid
+      series:
+        work_id: 作品id
+        name: シリーズ名
+        number: 番号
+      impression:
+        user_id: ユーザーid
+        work_id: 作品id
+        comment: コメント
+      highlight:
+        user_id: ユーザーid
+        work_id: 作品id
+        specified_range: 範囲
+        mark: マーク
