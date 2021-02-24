@@ -1,7 +1,7 @@
 <%= form_with(model: work, local: true) do |form| %>
   <% if work.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(work.errors.count, "error") %> prohibited this work from being saved:</h2>
+      <h2><%= work.errors.count %> 件のエラーが発生しました</h2>
 
       <ul>
       <% work.errors.full_messages.each do |message| %>
