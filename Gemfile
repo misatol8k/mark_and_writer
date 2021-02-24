@@ -26,6 +26,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'carrierwave'
 gem 'devise'
+gem 'devise-i18n'
 gem 'faker'
 gem 'ransack'
 gem 'rubocop', require: false
