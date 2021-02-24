@@ -7,6 +7,11 @@ class WorksController < ApplicationController
     @works = @q.result(distinct: true).order(created_at: :desc)
   end
 
+  # トップページに新着作品を表示
+  def top
+    @works = Work.order(created_at: :desc).limit(5)
+  end
+
   def new
     @work = current_user.works.build
   end

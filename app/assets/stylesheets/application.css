@@ -36,6 +36,11 @@
   margin: 20px 0;
   text-align: center;
 }
+#top_image {
+ height: auto;
+ width: 90%;
+ text-align: center;
+}
  .content {
   height: auto;
   padding-bottom: 60px;
