@@ -1,10 +1,13 @@
-<h1>Users#show</h1>
+<h2>ユーザー詳細</h2>
 
-<p>ユーザー名</p>
-<%= @user.name %>
-<p>プロフィール</p>
-<%= safe_join(@user.profile.split("\n"),tag(:br)) if @user.profile %>
-<p>ユーザー画像</p>
-<%= image_tag @user.image.url if @user.image && @user.image.url %>
-<br>
-<%= link_to "Edit", edit_user_registration_path %>
+<p class="font-weight-bold"><%= User.human_attribute_name(:name) %>:</p>
+<p><%= @user.name %></p>
+<p class="font-weight-bold"><%= User.human_attribute_name(:profile) %>:</p>
+<p><%= safe_join(@user.profile.split("\n"),tag(:br)) if @user.profile %></p>
+<p class="font-weight-bold"><%= User.human_attribute_name(:image) %>:</p>
+<p><%= image_tag @user.image.url if @user.image && @user.image.url %></p>
+
+<% if user_signed_in? %>
+  <%= render 'follow_form', user: @user if @user != current_user %>
+  <p><%= link_to "Edit", edit_user_registration_path, class: "btn btn-outline-success btn-sm" if @user == current_user %></p>
+<% end %>

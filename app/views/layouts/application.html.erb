@@ -5,30 +5,46 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <%= link_to "作品投稿", new_work_path %>
-      <%= link_to "作品一覧", works_path %>
-      <%= link_to "プロフィール", user_path(id: current_user.id) %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "新規登録", new_user_registration_path %>
-      <%= link_to "ログイン", new_user_session_path %>
-    <% end %>
-
+    <header class="blog-header py-3">
+      <div class="container nav-scroller py-1 mb-2">
+        <ul class="nav d-flex nav-pills">
+          <% if user_signed_in? %>
+            <li><%= link_to "作品投稿", new_work_path %></li>
+            <li><%= link_to "作品一覧", works_path %></li>
+            <li><%= link_to "プロフィール", user_path(id: current_user.id) %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "新規登録", new_user_registration_path %></li>
+            <li><%= link_to "ログイン", new_user_session_path %></li>
+          <% end %>
 <!-- adminログイン時の処理を記載する -->
+        </ul>
+      </div>
+    </header>
 
-    <% if notice %>
-      <p class="alert alert-notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-error"><%= alert %></p>
-    <% end %>
+    <div class="container content">
+      <div class="name title">
+        <%= yield(:title) %>
+      </div>
+      <% if notice %>
+        <p class="alert alert-notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-error"><%= alert %></p>
+      <% end %>
+      <%= yield %>
+    </div>
 
-    <%= yield %>
+    <footer class="footer">
+      <div class="container">
+        <p class="logo_image"><%= image_tag "markwriterlogo.png", id: 'logo_image' %></p>
+      </div>
+    </footer>
   </body>
 </html>
