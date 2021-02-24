@@ -12,9 +12,9 @@ RSpec.describe 'ユーザーログイン機能', type: :system do
   describe 'ユーザ登録のテスト' do
     before do
       visit new_user_registration_path
-      fill_in 'Email', with: 'user_test@test.com'
-      fill_in 'Name', with: 'user_test'
-      fill_in 'Password', with: 'password'
+      fill_in 'メールアドレス', with: 'user_test@test.com'
+      fill_in 'ユーザー名', with: 'user_test'
+      fill_in 'パスワード', with: 'password'
       fill_in 'Password confirmation', with: 'password'
       click_on 'Sign up'
     end
@@ -28,7 +28,7 @@ RSpec.describe 'ユーザーログイン機能', type: :system do
         it "編集した内容が反映される" do
           click_on 'プロフィール'
           click_on 'Edit'
-          fill_in 'Name', with: 'user_test_edit'
+          fill_in 'ユーザー名', with: 'user_test_edit'
           fill_in 'Current password', with: 'password'
           click_on 'Update'
           expect(page).to have_content 'Your account has been updated successfully.'
@@ -50,8 +50,8 @@ RSpec.describe 'ユーザーログイン機能', type: :system do
   describe 'セッション機能のテスト' do
     before do
       visit new_user_session_path
-      fill_in 'Email', with: 'test2@test.com'
-      fill_in 'Password', with: 'password'
+      fill_in 'メールアドレス', with: 'test2@test.com'
+      fill_in 'パスワード', with: 'password'
       click_button 'Log in'
     end
     context 'ユーザがログインしていないとき' do
@@ -64,7 +64,7 @@ RSpec.describe 'ユーザーログイン機能', type: :system do
         click_on 'プロフィール'
       end
       it '自分の詳細画面(マイページ)に飛べること' do
-        expect(page).to have_content 'Users#show'
+        expect(page).to have_content 'ユーザー詳細'
       end
     end
     context 'ユーザがログインしたとき' do

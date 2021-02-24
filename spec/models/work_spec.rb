@@ -15,7 +15,7 @@ RSpec.describe Work, type: :model do
           user: @user_a
         )
         work.valid?
-        expect(work.errors[:content]).to include("can't be blank")
+        expect(work.errors[:content]).to include("を入力してください")
       end
     end
     # titleが100文字以上は無効な状態であること
@@ -28,7 +28,7 @@ RSpec.describe Work, type: :model do
           user: @user_a
         )
         work.valid?
-        expect(work.errors[:title]).to include('is too long (maximum is 100 characters)')
+        expect(work.errors[:title]).to include('は100文字以内で入力してください')
       end
     end
     # タイトルと本文があれば有効な状態であること

@@ -13,7 +13,7 @@ RSpec.describe User, type: :model do
           image: nil
         )
         user.valid?
-        expect(user.errors[:name]).to include("can't be blank")
+        expect(user.errors[:name]).to include("を入力してください")
       end
     end
     # nameが100文字以上は無効な状態であること
@@ -27,7 +27,7 @@ RSpec.describe User, type: :model do
           image: nil
         )
         user.valid?
-        expect(user.errors[:name]).to include('is too long (maximum is 100 characters)')
+        expect(user.errors[:name]).to include('は100文字以内で入力してください')
       end
     end
     # profileが1000文字以上は無効な状態であること
@@ -41,7 +41,7 @@ RSpec.describe User, type: :model do
           image: nil
         )
         user.valid?
-        expect(user.errors[:profile]).to include('is too long (maximum is 1000 characters)')
+        expect(user.errors[:profile]).to include('は1000文字以内で入力してください')
       end
     end
     # プロフィールに画像を登録できる

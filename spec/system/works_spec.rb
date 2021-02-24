@@ -55,8 +55,8 @@ RSpec.describe '作品管理機能', type: :system do
     context '作品を新規作成した場合' do
       before do
         click_on '作品投稿'
-        fill_in 'work_title', with: 'テストを書く'
-        fill_in 'work_content', with: 'RSpecでテストを書く'
+        fill_in 'タイトル', with: 'テストを書く'
+        fill_in '本文', with: 'RSpecでテストを書く'
         click_on 'Create Work'
       end
       it '作成した作品が表示される' do
@@ -69,7 +69,7 @@ RSpec.describe '作品管理機能', type: :system do
           click_on '作品一覧'
           all('tbody tr')[1].click_link 'Show'
           click_on 'Edit'
-          fill_in 'work_content', with: '作品2を編集しました'
+          fill_in '本文', with: '作品2を編集しました'
           click_on 'Update Work'
         end
         it "編集した内容が表示される" do
