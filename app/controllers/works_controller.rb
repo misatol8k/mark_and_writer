@@ -4,7 +4,7 @@ class WorksController < ApplicationController
 
   def index
     @q = Work.all.ransack(params[:q])
-    @works = @q.result(distinct: true)
+    @works = @q.result(distinct: true).order(created_at: :desc)
   end
 
   def new
