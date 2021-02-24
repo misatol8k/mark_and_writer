@@ -6,6 +6,8 @@
 <p><%= safe_join(@user.profile.split("\n"),tag(:br)) if @user.profile %></p>
 <p class="font-weight-bold"><%= User.human_attribute_name(:image) %>:</p>
 <p><%= image_tag @user.image.url if @user.image && @user.image.url %></p>
-<%= render 'follow_form', user: @user if @user != current_user %>
-<br>
-<p><%= link_to "Edit", edit_user_registration_path, class: "btn btn-outline-success btn-sm" if @user == current_user %></p>
+
+<% if user_signed_in? %>
+  <%= render 'follow_form', user: @user if @user != current_user %>
+  <p><%= link_to "Edit", edit_user_registration_path, class: "btn btn-outline-success btn-sm" if @user == current_user %></p>
+<% end %>
