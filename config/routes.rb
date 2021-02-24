@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  get 'tops/index'
   devise_for :users
-  root 'works#top'
+  root 'tops#index'
   resources :works
   resources :users, only: [:show, :index]
   resources :relationships, only: [:create, :destroy]
