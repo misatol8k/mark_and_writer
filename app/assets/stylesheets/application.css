@@ -38,14 +38,22 @@
 }
 #top_image {
  height: auto;
- width: 90%;
- text-align: center;
+ width: 100%;
+ max-width: 800px;
+}
+#top_logo {
+ height: auto;
+ width: 100%;
+ max-width: 800px;
 }
  .content {
   height: auto;
   padding-bottom: 60px;
 }
+ .card {
+   margin-bottom: 3px;
 
+ }
  .footer {
   background-color: #97cdf3;
   position: absolute;
@@ -57,6 +65,7 @@
 }
 
  #logo_image {
-  height: 60px;
-  width: auto;
+  height: auto;
+  width: 40%;
+  max-width: 200px;
 }
