@@ -4,7 +4,7 @@ class FavoritesController < ApplicationController
 
   def create
     favorite = current_user.favorites.create(work_id: params[:work_id])
-    redirect_to works_url, notice: "#{favorite.work.user.name}お気に入り登録しました"
+    redirect_to works_url, notice: "お気に入り登録しました"
     # @favorite = current_user.favorites.create(work_id: params[:favorites][:work_id])
     # favorite = current_user.favorites.build(user_id: @current_user.id, work_id: params[:favorites][:work_id])
     # favorite.save!
@@ -14,7 +14,7 @@ class FavoritesController < ApplicationController
 
   def destroy
     favorite = current_user.favorites.find_by(id: params[:id]).destroy
-    redirect_to works_url, notice: "#{favorite.work.user.name}お気に入り解除しました"
+    redirect_to works_url, notice: "お気に入り解除しました"
     # @favorite = current_user.favorites.find_by(id: params[:id]).destroy
     # @work = current_user.favorite_works.find(params[:id])
     # current_user.unfavorite(@work)
