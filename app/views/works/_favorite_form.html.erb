@@ -1,0 +1,12 @@
+<div id="favorite_form_<%= @work.id %>">
+  <% unless @favorite.present? %>
+    <%= form_with(model: current_user.favorites.build(work_id: @work.id)) do |f| %>
+      <%= f.hidden_field :work_id , value: @work.id %>
+      <%= f.submit "お気に入りする", class: "btn btn-outline-primary btn-sm" %>
+    <% end %>
+  <% else %>
+    <%= form_with(model: current_user.favorites.find_by(work_id: @work.id), method: :delete ) do |f| %>
+      <%= f.submit "お気に入り解除", class: "btn btn-outline-secondary btn-sm" %>
+    <% end %>
+  <% end %>
+</div>
