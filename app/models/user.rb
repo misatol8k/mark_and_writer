@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :passive_relationships, foreign_key: 'followed_id', class_name: 'Relationship', dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :favorites, dependent: :destroy
   validates :name, presence: true, length: { maximum: 100 }
   validates :profile, length: { maximum: 1000 }
   mount_uploader :image, ImageUploader
@@ -20,7 +21,7 @@ class User < ApplicationRecord
   def following?(other_user)
     active_relationships.find_by(followed_id: other_user.id)
   end
-  
+
   def unfollow!(other_user)
     active_relationships.find_by(followed_id: other_user.id).destroy
   end

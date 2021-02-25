@@ -10,4 +10,5 @@ class Work < ApplicationRecord
   validates :title, length: { maximum: 100 }
   validates :content, presence: true, length: { maximum: 10_000 }
   belongs_to :user
+  has_many :favorites, dependent: :destroy
 end
