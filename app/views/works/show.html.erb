@@ -14,13 +14,21 @@
   <%= safe_join(@work.content.split("\n"),tag(:br)) %>
 </p>
 
+<strong>コメント一覧</strong>
+<p id="notice"><%= notice %></p>
+<div id="impressions_area">
+  <%= render partial: 'impressions/index', locals: { impressions: @impressions, work: @work } %>
+</div>
+
 <% if user_signed_in? %>
   <% if @work.user_id == current_user.id %>
     <%= link_to 'Edit', edit_work_path(@work), class: "btn btn-outline-success btn-sm" %>
     <%= link_to 'Destroy', @work, method: :delete,data: { confirm: '削除しますか？'}, class: "btn btn-outline-danger btn-sm" %>
   <% elsif @favorite.present? %>
-      <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-outline-danger btn-sm' %>
+    <%= render partial: 'impressions/form', locals: { impression: @impression, work: @work } %>
+    <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-outline-danger btn-sm' %>
   <% else %>
+    <%= render partial: 'impressions/form', locals: { impression: @impression, work: @work } %>
     <%= link_to 'お気に入りする', favorites_path(work_id: @work.id), method: :post, class: 'btn btn-outline-primary btn-sm' %>
   <% end %>
 <% end %>
