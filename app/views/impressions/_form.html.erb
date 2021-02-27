@@ -1,0 +1,19 @@
+<%= form_with(model: [work, impression]) do |form| %>
+  <% if impression.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= impression.errors.count %> 件のエラーが発生しました</h2>
+      <ul>
+      <% impression.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_area :comment %>
+  </div>
+  <div class="actions">
+    <%= form.submit class: 'btn btn-outline-primary btn-sm' %>
+  </div>
+<% end %>

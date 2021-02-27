@@ -1,0 +1,3 @@
+$("#impressions_area").html("<%= j(render 'impressions/index', { impressions: @impression.work.impressions, work: @impression.work }) %>");
+$("textarea").val('');
+$("#notice").html("<%= j flash[:notice] %>");

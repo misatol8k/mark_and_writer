@@ -1,0 +1,2 @@
+$("#this_impression_<%= @impression.id %>").replaceWith("<%= j render 'impressions/edit', work: @work, impression: @impression %>");
+$("#notice").html("<%= j flash[:notice] %>");
