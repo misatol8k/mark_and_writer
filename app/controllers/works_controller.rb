@@ -18,7 +18,9 @@ class WorksController < ApplicationController
 
   def edit; end
 
-  def show; end
+  def show
+    @favorite = current_user.favorites.find_by(work_id: @work.id) if current_user
+  end
 
   def create
     @work = current_user.works.build(work_params)
