@@ -20,6 +20,8 @@ class WorksController < ApplicationController
 
   def show
     @favorite = current_user.favorites.find_by(work_id: @work.id) if current_user
+    @impressions = @work.impressions
+    @impression = @work.impressions.build
   end
 
   def create
