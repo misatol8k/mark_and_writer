@@ -297,6 +297,10 @@ GEM
 
 PLATFORMS
   ruby
+<<<<<<< HEAD
+=======
+  x86_64-darwin-18
+>>>>>>> issue_5
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
