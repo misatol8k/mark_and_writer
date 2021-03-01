@@ -6,7 +6,7 @@
     <% end %>
   <% else %>
     <%= form_with(model: current_user.favorites.find_by(work_id: @work.id), method: :delete ) do |f| %>
-      <%= f.submit "お気に入り解除", class: "btn btn-outline-secondary btn-sm" %>
+      <%= f.submit "お気に入り解除する", class: "btn btn-outline-secondary btn-sm" %>
     <% end %>
   <% end %>
 </div>
