@@ -22,6 +22,8 @@ class WorksController < ApplicationController
     @favorite = current_user.favorites.find_by(work_id: @work.id) if current_user
     @impressions = @work.impressions
     @impression = @work.impressions.build
+    @reactions = @work.reactions
+    @reaction = @work.reactions.build
   end
 
   def create
