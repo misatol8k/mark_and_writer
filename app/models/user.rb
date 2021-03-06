@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :favorites, dependent: :destroy
+  has_many :reactions, dependent: :destroy
   # has_many :favorite_works, through: :favorites, source: :work
   validates :name, presence: true, length: { maximum: 100 }
   validates :profile, length: { maximum: 1000 }
