@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_05_102045) do
+ActiveRecord::Schema.define(version: 2021_03_06_131644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,17 @@ ActiveRecord::Schema.define(version: 2021_03_05_102045) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["work_id"], name: "index_impressions_on_work_id"
+  end
+
+  create_table "reactions", force: :cascade do |t|
+    t.bigint "work_id"
+    t.bigint "user_id"
+    t.bigint "sticker_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sticker_id"], name: "index_reactions_on_sticker_id"
+    t.index ["user_id"], name: "index_reactions_on_user_id"
+    t.index ["work_id"], name: "index_reactions_on_work_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -78,5 +89,8 @@ ActiveRecord::Schema.define(version: 2021_03_05_102045) do
   end
 
   add_foreign_key "impressions", "works"
+  add_foreign_key "reactions", "stickers"
+  add_foreign_key "reactions", "users"
+  add_foreign_key "reactions", "works"
   add_foreign_key "works", "users"
 end
