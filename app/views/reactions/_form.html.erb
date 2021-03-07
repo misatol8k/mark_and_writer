@@ -11,8 +11,8 @@
   <% end %>
   <div class="form-group">
     <% Sticker.all.each do |sticker| %>
-    <%= form.check_box :sticker_ids, { multiple: true, checked: sticker[:checked], disabled: sticker[:disabled], include_hidden: false}, sticker[:id], "" %>
-    <label><%= sticker.name %></label>
+    <%= form.check_box :sticker_ids, { multiple: false, checked: sticker[:checked], disabled: sticker[:disabled], include_hidden: false}, sticker[:id], "" %>
+    <label><%= image_tag sticker.image.url %></label>
     <% end %>
   </div>
 
