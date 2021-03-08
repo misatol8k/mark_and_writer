@@ -1,0 +1,11 @@
+<ul>
+  <% reactions.each do |reaction| %>
+    <% if reaction.id.present? %>
+      <li>
+        <div class="reaction-sticker_id" id ="this_reaction_<%= reaction.id %>"></div>
+        <p><%= reaction.sticker_id %></p>
+        <%# <!-- <p><%= link_to "スタンプ削除", work_reaction_path(reaction.work_id, reaction.id), method: :delete, remote: true %></p> --> %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
