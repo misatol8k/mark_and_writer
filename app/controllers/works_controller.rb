@@ -23,7 +23,7 @@ class WorksController < ApplicationController
     @impressions = @work.impressions
     @impression = @work.impressions.build
     @reactions = @work.reactions
-    @reaction = @work.reactions.build
+    @reaction = current_user.reactions.build(work_id: @work.id)
   end
 
   def create

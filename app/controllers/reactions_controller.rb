@@ -1,6 +1,6 @@
 class ReactionsController < ApplicationController
   def create
-    reaction = current_user.reactions.create(work_id: params[:work_id])
+    reaction = current_user.reactions.create(work_id: params[:work_id], sticker_id: params[:sticker_id])
     redirect_to works_url, notice: "スタンプしました"
   end
 
