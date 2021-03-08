@@ -14,5 +14,6 @@ class Work < ApplicationRecord
   has_many :favorite_users, through: :favorites, source: :user
   has_many :impressions, dependent: :destroy
   has_many :reactions, dependent: :destroy
+  has_many :stickers, through: :reactions
   has_many :reaction_users, through: :reactions, source: :user
 end
