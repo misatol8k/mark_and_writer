@@ -14,6 +14,17 @@
   <%= safe_join(@work.content.split("\n"),tag(:br)) %>
 </p>
 
+<strong>スタンプ一覧</strong>
+<div id="reactions_area">
+  <%# <%= render partial: 'reactions/index', locals: { reactions: @reactions, work: @work } %> %>
+</div>
+<% if user_signed_in? %>
+  <% if @work.user_id == current_user.id %>
+  <% else %>
+    <%= render partial: 'reactions/form', locals: { reaction: @reaction, work: @work } %>
+  <% end %>
+<% end %>
+
 <strong>コメント一覧</strong>
 <p id="notice"><%= notice %></p>
 <div id="impressions_area">
