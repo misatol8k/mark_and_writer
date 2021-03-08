@@ -29,7 +29,7 @@
     <%= link_to 'お気に入り解除', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-outline-danger btn-sm' %>
   <% else %>
     <%= render partial: 'impressions/form', locals: { impression: @impression, work: @work } %>
-    <%= link_to 'お気に入りする', favorites_path(work_id: @work.id), method: :post, class: 'btn btn-outline-primary btn-sm' %>
+    <%= link_to 'お気に入り', favorites_path(work_id: @work.id), method: :post, class: 'btn btn-outline-primary btn-sm' %>
   <% end %>
 <% end %>
 
