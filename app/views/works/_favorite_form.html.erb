@@ -1,3 +1,4 @@
+<!-- 未対応：ajaxに変更するときに使用する -->
 <div id="favorite_form_<%= @work.id %>">
   <% unless @favorite.present? %>
     <%= form_with(model: current_user.favorites.build(work_id: @work.id)) do |f| %>
