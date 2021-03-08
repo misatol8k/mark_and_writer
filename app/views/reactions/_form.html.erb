@@ -1,21 +1,10 @@
-<%= form_with(model: [work, reaction]) do |form| %>
-  <% if reaction.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= reaction.errors.count %> 件のエラーが発生しました</h2>
-      <ul>
-      <% reaction.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_with(model: [@work, @reaction]) do |form| %>
   <div class="form-group">
     <% Sticker.all.each do |sticker| %>
-    <%= form.check_box :sticker_ids, { multiple: false, checked: sticker[:checked], disabled: sticker[:disabled], include_hidden: false}, sticker[:id], "" %>
-    <label><%= image_tag sticker.image.url %></label>
+      <%= form.radio_button :sticker_id, sticker[:id] %>
+      <label><%= image_tag sticker.image.url %></label>
     <% end %>
   </div>
-
   <div class="actions">
     <%= form.submit class: 'btn btn-outline-primary btn-sm' %>
   </div>
