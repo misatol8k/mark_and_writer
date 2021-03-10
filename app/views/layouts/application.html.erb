@@ -33,6 +33,8 @@
     <div class="container content">
       <div class="name title">
         <%= yield(:title) %>
+        <%= params %>
+<%# TODOテスト時に削除する %>
       </div>
       <% if notice %>
         <p class="alert alert-notice"><%= notice %></p>
