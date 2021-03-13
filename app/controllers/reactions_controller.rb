@@ -1,11 +1,11 @@
 class ReactionsController < ApplicationController
   def create
-    @reaction = current_user.reactions.build(reaction_params)
+    set_work
+    reaction = current_user.reactions.build(reaction_params)
+    reaction[:work_id] = @work.id
     # work_idは詳細表示しているworkのid,user_idはcurrent_userのidを保存する
-    binding.pry
-    @reaction.save
+    reaction.save
     redirect_to works_url, notice: "スタンプしました"
-    # binding.pry
   end
 
   def destroy
@@ -15,7 +15,9 @@ class ReactionsController < ApplicationController
 
   private
   def reaction_params
-    # params.require(:reaction).permit(:sticker_id)
-    params.require(:reaction).permit(:sticker_id).merge(work_id: :work_id)
+    params.require(:reaction).permit(:sticker_id)
+  end
+  def set_work
+    @work = Work.find(params[:work_id])
   end
 end
