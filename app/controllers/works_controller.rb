@@ -23,7 +23,9 @@ class WorksController < ApplicationController
     @impressions = @work.impressions
     @impression = @work.impressions.build
     @reactions = @work.reactions
-    @reaction = current_user.reactions.build(work_id: @work.id)
+    @reaction = Reaction.find_or_initialize_by(work_id: @work.id)
+    # @reaction = current_user.reactions.find_by(work_id: @work.id)
+
   end
 
   def create
