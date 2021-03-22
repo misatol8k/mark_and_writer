@@ -6,6 +6,17 @@ class ReactionsController < ApplicationController
     redirect_to works_url, notice: "スタンプしました"
   end
 
+  def edit
+    reaction = current_user.reactions.build(reaction_params)
+    # @impression = @work.impressions.find(params[:id])
+  end
+
+  def update
+    reaction = current_user.reactions.find_by(id: params[:id])
+    reaction.update(reaction_params)
+    redirect_to works_url, notice: "更新しました"
+  end
+
   def destroy
     reaction = current_user.reactions.find_by(id: params[:id]).destroy
     redirect_to works_url, notice: "スタンプ削除しました"
