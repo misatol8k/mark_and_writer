@@ -1,17 +1,17 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '2.7.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
-gem 'rails', '~> 5.2.4', '>= 5.2.4.4'
+gem 'rails', '>= 6.0', '< 6.1'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 
-gem 'coffee-rails', '~> 4.2'
+gem 'coffee-rails', '5.0.0'
 gem 'jbuilder', '~> 2.5'
 gem 'turbolinks', '~> 5'
 # gem 'redis', '~> 4.0'
@@ -30,6 +30,7 @@ gem 'devise-i18n'
 gem 'faker'
 gem 'ransack'
 gem 'rubocop', require: false
+gem 'rubyzip', '~> 2.3.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
